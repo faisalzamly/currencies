@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        .table2{
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: rgb(255, 255, 255);
+            padding: 20px 200px;
+            width: 100%;
+            text-align: center;
+        }
+        .table1{
+            display: flex;
+        }
+        table{
+            margin: 30px;
+            padding: 20px;
+            width: 100%;
+            display: inline-block;
+        }
+        td {
+            width: 20%; 
+            border: none; 
+            border-radius: 6px; 
+        }
+        header {
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: rgb(66, 66, 66);
+            padding: 10px 200px;
+            width: 100%;
+            align-items: center;
+   
+        }
+
+        thead{
+            text-decoration: none;
+            font-size: 0.7em;
+            font-weight: 700;
+            width: 90px; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 10px; 
+            background-color:rgb(178, 178, 180);
+        }   
+
+        .nav1 a {
+            /* color: blue;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding-left: 30px; */
+
+            display: inline-block; 
+            background-color: rgb(178, 178, 180);
+            color: rgb(66, 66, 66);
+            text-decoration: none;
+            font-size: 0.7em;
+            font-weight: 700;
+            width: 90px; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 6px; 
+            text-align: center;
+        }
+
+        .nav1 a:hover {
+            color: blueviolet;
+        }
+    </style>
+     <header>
+        <nav class="nav1">
+            <a href="#">حفظ</a>
+            <a href="/admin">تحرير</a>
+            
+        </nav>
+    </header>
+    <div class="table2">
+    <div class="table1">
+    <table class="table">
+        <thead>
+            <td colspan="2">البنك المركزي </td>
+        </thead>
+                {% for model, num in combined_data %}
+                    <tbody>
+                        <td>{{ num }}</td>  
+                        <td>{{ model.name }}</td>                  
+                    </tbody>
+                {% endfor %}
+            </table>
+        </div>  
+    <div class="table1">
+    <table class="table">
+        <thead>
+            <td colspan="2">اسعار متفرقة</td>
+            
+        </thead>
+                {% for model, num in combined_data2 %}
+                    <tbody>
+                        <td>{{ num }}</td>  
+                        <td>{{ model.name }}</td>                  
+                    </tbody>
+                {% endfor %}
+      </table>
+    </div>
+    <div class="table1">
+    <table class="table">
+        <thead >
+            <td colspan="2">الذهب </td>
+            
+        </thead>
+                {% for model, num in combined_data3 %}
+                    <tbody>
+                        <td>{{ num }}</td>  
+                        <td>{{ model.name }}</td>                  
+                    </tbody>
+                {% endfor %}
+       
+      </table>
+    </div>
+</div>
+</body>
+</html>
