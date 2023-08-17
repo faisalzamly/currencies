@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <title>Styled Forms</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      margin: 0;
+    }
+
+    .form-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 100px
+    }
+
+    .form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: calc(50% - 20px); /* Subtract the margin to fit two forms in a row */
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .form h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inputs input {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button[type="submit"] {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s, padding 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+      padding: 12px 22px;
+    }
+    header {
+      display: flex;
+      position: fixed;
+      top: 0;
+      right: 0;
+      flex-direction: row-reverse;
+      background-color: rgb(66, 66, 66);
+      padding: 10px 200px;
+      width: 100%;
+      align-items: center;
+    
+    }
+    .nav1 a {
+      /* color: blue;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding-left: 30px; */
+    
+      display: inline-block; 
+      background-color: rgb(178, 178, 180);
+      color: rgb(66, 66, 66);
+      text-decoration: none;
+      font-size: 0.7em;
+      font-weight: 700;
+      width: 120px; 
+      padding: 10px 20px; 
+      border: none; 
+      border-radius: 6px; 
+      text-align: center;
+    }
+    
+    .nav1 a:hover {
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  
+<header>
+  <nav class="nav1">
+      <a href="/Change_password">تغيير كلمة المرور</a>
+      <a href="/logout">تسجيل الخروج</a>
+      
+  </nav>
+</header>
+  <div class="form-container">
+    <!-- Form 1 -->
+    <form class="form"method="post" action="{% url 'Form1' %}">
+        {% csrf_token %}
+        <h2><input type="text" placeholder="{{ list_name_table.0 }}" value="{{ list_name_table.0 }}" name="list_name_table0" required></h2>
+        <div class="inputs">
+            {% for model in models1 %}
+                <input type="text" placeholder="{{ model.name }}" value="{{ model.name }}" name="{{ model.id }}" required>
+                   
+            {% endfor %}
+       
+       
+      </div>
+      <button type="submit">Submit</button> <!-- زر إرسال للنموذج -->
+
+    </form>
+
+    <!-- Form 2 -->
+    <form class="form"method="post" action="{% url 'Form2' %}">
+        {% csrf_token %}
+        <h2><input type="text" placeholder="{{ list_name_table.1 }}" value="{{ list_name_table.1 }}" name="list_name_table1" required></h2>
+      <div class="inputs">
+        {% for model in models2 %}
+            <input type="text" placeholder="{{ model.name }}" value="{{ model.name }}" name="{{ model.id }}" required>
+           
+        {% endfor %}
+      </div>
+      <button type="submit">Submit</button> <!-- زر إرسال للنموذج -->
+
+    </form>
+
+    <!-- Form 3 -->
+    <form class="form"method="post" action="{% url 'Form3' %}">
+        {% csrf_token %}
+        <h2><input type="text" placeholder="{{ list_name_table.2 }}" value="{{ list_name_table.2 }}" name="list_name_table2" required></h2>
+      <div class="inputs">
+        {% for model in models3 %}
+            <input type="text" placeholder="{{ model.name }}" value="{{ model.name }}" name="{{ model.id }}" required>
+           
+        {% endfor %}
+      </div>
+      <button type="submit">Submit</button> <!-- زر إرسال للنموذج -->
+
+    </form>
+
+    <!-- Form 4 -->
+    <form class="form"method="post" action="{% url 'Form4' %}">
+        {% csrf_token %}
+        <h2><input type="text" placeholder="{{ list_name_table.3 }}" value="{{ list_name_table.3 }}" name="list_name_table3" required></h2>
+        <h2><input type="text" placeholder="{{ models7.numper }}" value="{{ models7.numper}}" name="name_numper" required></h2>
+      <div class="inputs">
+        {% for model in models4 %}
+            <input type="text" placeholder="{{ model.name }}" value="{{ model.name }}" name="{{ model.id }}" required>
+            
+        {% endfor %}
+        <!-- ... Add more input fields up to 7 -->
+      </div>
+      <button type="submit">Submit</button> <!-- زر إرسال للنموذج -->
+
+    </form>
+
+    <!-- Form 5 -->
+    <form class="form"method="post" action="{% url 'Form5' %}">
+        {% csrf_token %}
+        <h2><input type="text" placeholder="{{ list_name_table.4 }}" value="{{ list_name_table.4 }}" name="list_name_table4" required></h2>
+      <div class="inputs">
+        {% for model in models5 %}
+            <input type="text" placeholder="{{ model.name }}" value="{{ model.name }}" name="{{ model.id }}" required>
+            
+        {% endfor %}
+        <!-- ... Add more input fields up to 30 -->
+      </div>
+      <button type="submit">Submit</button> <!-- زر إرسال للنموذج -->
+
+    </form>
+  </div>
+  {% endblock %}

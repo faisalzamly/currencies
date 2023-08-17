@@ -5,3 +5,7 @@ from .models import *
 admin.site.register(table_bank)
 admin.site.register(table_price)
 admin.site.register(table_gold)
+admin.site.register(table_price_market)
+admin.site.register(table_gold_dinar)
+admin.site.register(name_table)
+admin.site.register(price_numper)
