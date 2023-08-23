@@ -11,6 +11,7 @@ urlpatterns = [
     path("Form3", views.Form3 ,name='Form3'),
     path("Form4", views.Form4 ,name='Form4'),
     path("Form5", views.Form5 ,name='Form5'),
+    # path("table1", views.num_table_price_market ,name='table1'),
     path('logout/',views.Logout, name="logout"),
 
 ]

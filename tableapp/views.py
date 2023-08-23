@@ -15,13 +15,11 @@ from bs4 import BeautifulSoup
 import os, requests
 
 # os.system('pip install requests')
-# os.system('pip install BeautifulSoup')
+# os.system('pip install BeautifulSoup4')
 # os.system('pip install bs4')
     
 
-headers = {
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-}
+
 def script_table_bank():
     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'}
     url = 'https://www.cbi.iq/currency_auction'
@@ -164,6 +162,7 @@ formatted_numbers=script_formatted_numbers(num_table_gold)
 def index(request):
     
 
+    
     list_name_table=[]
     for i in models6.values():
         list_name_table.append(i['name'])
@@ -175,8 +174,8 @@ def index(request):
         num_table_gold_dinar.append("{:.2f}".format(i*models7.numper))
     combined_data4 = zip(models4, num_table_gold_dinar)
     combined_data5 = zip(models5, num_table_price_market)
-    
-    
+
+
     numper={
         'combined_data':combined_data,
         'combined_data2':combined_data2,
@@ -186,6 +185,7 @@ def index(request):
         'list_name_table':list_name_table,
     }
     return render(request, 'index.html', numper)
+    
 
 
 def login1(request):
